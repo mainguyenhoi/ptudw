@@ -72,10 +72,9 @@ const  Login : React.FC<IProps> = (props) => {
                     <LoginForm onSubmit ={login} />
 
                     <br />
-                    <div>Student account: student1 - student1
+                    <div>Example account: user1 - 123456
                     </div>
-                    <div>Couch account: coach1 - coach1
-                    </div>
+
                 </div>
 
             </div>
