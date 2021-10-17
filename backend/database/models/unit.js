@@ -35,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   Unit.associate = function (models) {
     Unit.belongsTo(models.branch, { foreignKey: 'branchId', as: 'branch' });
+    Unit.hasMany(models.user, { foreignKey: 'unitId', as: 'users' });
   };
   return Unit;
 };

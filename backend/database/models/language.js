@@ -1,6 +1,7 @@
 const {
   Model,
 } = require('sequelize');
+const User = require('.').user;
 
 module.exports = (sequelize, DataTypes) => {
   class Language extends Model {
@@ -14,11 +15,22 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Language.init({
-    name: DataTypes.STRING,
-    allowNull: false,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   }, {
     sequelize,
     modelName: 'language',
   });
+
+  Language.associate = function (models) {
+    Language.belongsToMany(models.user, {
+      through: 'user_languages',
+      as: 'users',
+      foreignKey: 'languageId',
+    });
+  };
+
   return Language;
 };
