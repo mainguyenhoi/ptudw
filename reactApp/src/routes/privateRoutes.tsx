@@ -2,7 +2,7 @@ import $ from 'jquery';
 import React, {Component, lazy} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Progress from '@components/progress';
-import Navigation from '@components/navigation/index';
+import Navigation from '@containers/Navigation';
 import TopHeader from '@components/topHeader';
 import Footer from '@components/footer';
 import {correctHeight, detectBody} from '@helpers/theme';

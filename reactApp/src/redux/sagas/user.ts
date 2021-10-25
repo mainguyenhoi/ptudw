@@ -1,10 +1,10 @@
-import {all, call, put, takeEvery, fork} from 'redux-saga/effects';
+import {all, call, put, takeEvery, fork, takeLatest} from 'redux-saga/effects';
 import {toastr} from 'react-redux-toastr';
 import {UserService} from '@services';
 import {UserAction} from '../actions';
 import {UserConstant} from '../actions/constants';
 import {LocalStorageConstant} from '@constants';
-import {AAD_LOGOUT_CLICK} from '@redux/actions/constants/user';
+import {AAD_LOGOUT_CLICK, FETCH_USER_PROFILE} from '@redux/actions/constants/user';
 
 const {IS_AUTH, AUTHORITY} = LocalStorageConstant;
 
@@ -39,10 +39,20 @@ function* logout(payload) {
     } catch (error) {
     }
 }
+
+function* fetchProfile() {
+    try {
+        const response = yield UserService.getProfile();
+        yield put(UserAction.fetchUserProfileSuccess(response));
+    } catch (error) {
+        yield put(UserAction.fetchUserProfileFailed());
+    }
+}
+
 function* watchUserLogin() {
     yield takeEvery(AAD_LOGIN_CLICK, login);
     yield takeEvery(AAD_LOGOUT_CLICK, logout);
-
+    yield takeEvery(FETCH_USER_PROFILE, fetchProfile);
 }
 
 export default function* userSaga() {

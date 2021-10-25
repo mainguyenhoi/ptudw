@@ -37,13 +37,9 @@ const Navigation = (props) => {
     const {pathname} = location;
 
     const menuRef = useRef(null);
-    const [user, setUser] = useState({
-        firstName: '',
-        lastName: '',
-        avatar: ''
-    })
 
-
+    const {user } = props;
+    console.log(user);
 
     const [menu, setMenu] = useState(listNavigationMenu);
 
@@ -101,18 +97,18 @@ const Navigation = (props) => {
         $('body').toggleClass('mini-navbar');
 
         smoothlyMenu();
-
-
     }, [])
-    const {firstName, lastName, avatar} = user;
+    
+    const {name, avatar, role} = user;
+
     const renderProfile = () => (
 
         <div className="dropdown profile-element">
             <img alt="" className="img-circle logo" src={avatar} />
             <span data-toggle="dropdown" className="dropdown-toggle" style={{cursor: 'pointer'}}>
-                <span className="block m-t-xs font-bold">{lastName + ' ' + firstName}</span>
+                <span className="block m-t-xs font-bold">{name}</span>
                 <span className="text-muted text-xs block">
-                    Developer
+                    {role?.name}
           <b className="caret" />
                 </span>
             </span>

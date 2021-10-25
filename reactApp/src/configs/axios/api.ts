@@ -1,7 +1,9 @@
 import axios from 'axios';
 import {API_ENDPOINT} from '@environments';
+import  interceptor from  './interceptor';
 
-export const API  = axios.create({
+
+ const API  = axios.create({
     baseURL: API_ENDPOINT,
     headers: {
         'Content-Type': 'application/json',
@@ -9,3 +11,6 @@ export const API  = axios.create({
     },
 });
 
+interceptor(API);
+
+export {API}

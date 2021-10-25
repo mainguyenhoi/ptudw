@@ -8,10 +8,11 @@ const {
 const initialState = {
     loading: false,
     error: null,
-    isAuth: false
+    isAuth: false,
+    userProfile: {}
 };
 
-const {loginAction, loginSuccess, loginPending, loginFailed, logOutAction} = UserAction;
+const {loginAction, loginSuccess, loginPending, loginFailed, logOutAction ,fetchUserProfile, fetchUserProfileSuccess} = UserAction;
 
 const UserReducer = createReducer(initialState, (builder) => {
     builder.addCase(loginAction, (state, action) => {
@@ -19,14 +20,12 @@ const UserReducer = createReducer(initialState, (builder) => {
             loading: true,
             error: null,
             isAuth: false,
+            userProfile: {}
         };
     })
-        .addCase(loginSuccess, () => {
-            return {
-                ...initialState,
-                isAuth: true,
-                loading: false,
-            };
+        .addCase(loginSuccess, (state) => {
+            state.isAuth = true;
+            state.loading = false;
         })
         .addCase(loginPending, () => {
             return {
@@ -41,7 +40,9 @@ const UserReducer = createReducer(initialState, (builder) => {
             }
         }).addCase(logOutAction, () => {
             return initialState
-
+        }).addCase(fetchUserProfileSuccess, (state, data) => {
+            const { payload } =data;
+            state.userProfile = payload;
         })
 });
 

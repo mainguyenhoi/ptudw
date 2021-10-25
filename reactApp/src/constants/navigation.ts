@@ -3,31 +3,41 @@ export interface NavigationInterface {
     icon?: string;
     label: string;
     children?: NavigationInterface[];
+    role? : any[]
 }
 
 export const NavigationMenu: {
     admin: NavigationInterface,
-    dashboard: NavigationInterface,
-    report: NavigationInterface,
+    dateOff: NavigationInterface,
+    WorkingForm: NavigationInterface,
 } = {
     admin: {
         path: '/administrator', icon: 'users-cog', label: 'Administrator',
         children: [
             {
-                path: '/departments', icon: 'building', label: 'Department',
+                path: '/users', icon: 'chart-area', label: 'Users', role: ['QLDV', 'QLCN'],
             },
             {
-                path: '/reports', icon: 'chart-area', label: 'Reports',
-            }
+                path: '/working-forms', icon: 'building', label: 'Working form', role: ['QLDV', 'QLCN']
+            },
+            {
+                path: '/date-off-forms', icon: 'building', label: 'Date off form', role: ['QLDV', 'QLCN']
+            },
+            {
+                path: '/salary-keepers', icon: 'building', label: 'Salary keeper', role: ['QLCN']
+            },
+            {
+                path: '/statistics', icon: 'building', label: 'Statistics', role: ['QLCN']
+            },
+           
         ]
     },
-    dashboard: {
-        path: '/dashboard', icon: 'home', label: 'Home',
+    dateOff: {
+        path: '/date-off-forms', icon: 'home', label: 'Date off form',
     },
-    report: {
-        path: '/reports', icon: 'chart-area', label: 'Reports',
-        children: [
-        ]
+    WorkingForm: {
+        path: '/working-forms', icon: 'chart-area', label: 'Working form',
+
     }
 };
 

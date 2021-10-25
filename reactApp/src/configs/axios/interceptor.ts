@@ -1,36 +1,36 @@
-import axios from 'axios';
+import {logout} from '@helpers/auth';
+import history from '@src/history';
 
-axios.interceptors.request.use(async (config) => {
-    const widgetData = localStorage.getItem('widget:Web');
-    const newConfig = config;
-
-    if (!widgetData || Date.now() >= JSON.parse(widgetData).expires_in) {
-        try {
-        } catch (error) {
-            return Promise.reject(error);
+export default  (axios:any) => {
+    axios.interceptors.request.use( function(config) {
+        const authority = localStorage.getItem('doan:authority');
+        const newConfig = config;
+        // if (!authority || Date.now() >= JSON.parse(authority).expires_in) {
+        //     try {
+        //     } catch (error) {
+        //         return Promise.reject(error);
+        //     }
+        // }
+    
+        if (authority ) {
+            const data = JSON.parse(authority);
+            const { accessToken} = data;
+          newConfig.headers.Authorization = accessToken ? `Bearer ${accessToken}` : '';
+             
         }
-    }
-    //   newConfig.headers.Authorization = access_token ? `Bearer ${access_token}` : '';
-
-    return newConfig;
-});
-
-axios.interceptors.response.use((response) => response, async (error) => {
-    const originalRequest = error.config;
-
-    if (error.response) {
-        const {status} = error.response;
-        const {data} = error.response.data;
-
-        if (status === 400 && data.isExpired) {
-            try {
-                // originalRequest.headers.Authorization = `Bearer ${access_token}`;
-                return axios(originalRequest);
-            } catch (err) {
-                return Promise.reject(err);
+        return newConfig;
+    });
+    
+    axios.interceptors.response.use((response) => response, async (error) => {
+    
+        if (error.response) {
+            const {status} = error.response;
+            const {data} = error.response.data;
+    
+            if (status === 401 || data.isExpired) {
+                logout();
+                history.push("/login");
             }
         }
-    }
-
-    return Promise.reject(error);
-});
+    });
+}

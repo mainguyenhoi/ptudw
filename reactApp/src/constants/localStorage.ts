@@ -1,2 +1,2 @@
-export const IS_AUTH = 'embeddedWeb:isAuth';
-export const AUTHORITY = 'embeddedWeb:authority';
+export const IS_AUTH = 'doan:isAuth';
+export const AUTHORITY = 'doan:authority';
