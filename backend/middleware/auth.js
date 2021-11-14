@@ -12,12 +12,12 @@ module.exports = {
 
     return async (req, res, next) => {
       try {
+        
         let token = req.get('Authorization');
-
         if (!token) {
           throw new HttpError({
             message: constant.MISSING_REQUIRED_HEADERS,
-            privateMessage: 'validateLogin Failed. Missing required header(s).',
+            privateMessage: 'validate Login Failed. Missing required header(s).',
             name: HttpError.NAMES_ENUM.MISSING_REQUIRE_FIELD,
             httpStatus: constant.HTTP_CODE_BAD_REQUEST,
           });
@@ -49,7 +49,7 @@ module.exports = {
         if (!account) {
           throw new HttpError({
             message: constant.LOGIN_FAILED,
-            privateMessage: 'ADMIN validateLogin Failed. Email or Token are invalid',
+            privateMessage: 'ADMIN validate Login Failed. Email or Token are invalid',
             name: HttpError.NAMES_ENUM.AUTHORIZE_FAIL,
             httpStatus: constant.HTTP_CODE_UNAUTHORIZED,
           });

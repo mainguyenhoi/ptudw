@@ -1,0 +1,43 @@
+.div-form{
+    display: block;
+    align-items: center;
+    width: 45%;
+    border: solid 0.5px #f7f7f7;
+    padding: 5px;
+    background-color: white;
+}
+.label{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-bottom: solid 0.5px #f7f7f7 ;
+    justify-content: space-between;
+}
+.label i{
+    float: right;
+}
+.label h5{
+    padding-right: 88%;
+}
+.form-group.input {
+    width: 45%;
+}
+.inline{
+    width: 100%;
+    display: flex !important;
+    justify-content: space-between;
+}
+.inline.ct{
+    align-items: end;
+    
+}
+.inline.ct.left{
+    justify-content: flex-start;
+}
+.inline.ct.left h4{
+    padding-right: 20px;
+}
+.form-floating  {
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}

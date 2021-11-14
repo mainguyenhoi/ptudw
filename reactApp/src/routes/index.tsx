@@ -1,8 +1,7 @@
-import React, {lazy} from 'react';
-import {Route, Switch} from 'react-router-dom';
+import React, { lazy } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import '../assets/dependencies';
-
 import Login from '@pages/Login';
 import PrivateRoute from '@components/router/privateRoute';
 import WaitingComponent from '@components/waiting';
@@ -18,7 +17,6 @@ export default function Routes(props) {
             <Switch>
                 <Route path="/login" component={Login} />
                 <PrivateRoute path="/" component={WaitingComponent(privateRoutes)} />
-
             </Switch>
         </div>
     );

@@ -6,9 +6,11 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "db:migrate": "cd database && sequelize db:migrate",
+    "db:migrate:undo": "cd database && sequelize db:migrate:undo",
     "db:seed": "cd database && sequelize db:seed:all"
   },
   "dependencies": {
+    "@ryanburnette/sequelize-sync-models": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
@@ -22,7 +24,9 @@
     "md5": "^2.3.0",
     "module-alias": "^2.2.2",
     "morgan": "~1.9.1",
+    "mysql2": "^2.3.3-rc.0",
     "sequelize": "^6.7.0",
+    "sequelize-cli": "^6.3.0",
     "sqlite3": "^5.0.2",
     "winston": "^3.3.3"
   },
@@ -31,7 +35,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.25.2",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.14"
   },
   "_moduleAliases": {
     "@root": ".",

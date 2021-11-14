@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c52668a0.chunk.css",
+    "main.js": "/static/js/main.1c11dfd1.chunk.js",
+    "main.js.map": "/static/js/main.1c11dfd1.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.87658011.js",
+    "runtime-main.js.map": "/static/js/runtime-main.87658011.js.map",
+    "static/css/2.183bf923.chunk.css": "/static/css/2.183bf923.chunk.css",
+    "static/js/2.9fad7eb5.chunk.js": "/static/js/2.9fad7eb5.chunk.js",
+    "static/js/2.9fad7eb5.chunk.js.map": "/static/js/2.9fad7eb5.chunk.js.map",
+    "static/css/3.27d05bb8.chunk.css": "/static/css/3.27d05bb8.chunk.css",
+    "static/js/3.395303de.chunk.js": "/static/js/3.395303de.chunk.js",
+    "static/js/3.395303de.chunk.js.map": "/static/js/3.395303de.chunk.js.map",
+    "static/js/4.dcbb3e3a.chunk.js": "/static/js/4.dcbb3e3a.chunk.js",
+    "static/js/4.dcbb3e3a.chunk.js.map": "/static/js/4.dcbb3e3a.chunk.js.map",
+    "static/js/5.cf626348.chunk.js": "/static/js/5.cf626348.chunk.js",
+    "static/js/5.cf626348.chunk.js.map": "/static/js/5.cf626348.chunk.js.map",
+    "static/css/6.f76a393a.chunk.css": "/static/css/6.f76a393a.chunk.css",
+    "static/js/6.090d6bb3.chunk.js": "/static/js/6.090d6bb3.chunk.js",
+    "static/js/6.090d6bb3.chunk.js.map": "/static/js/6.090d6bb3.chunk.js.map",
+    "static/js/7.526328ac.chunk.js": "/static/js/7.526328ac.chunk.js",
+    "static/js/7.526328ac.chunk.js.map": "/static/js/7.526328ac.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.183bf923.chunk.css.map": "/static/css/2.183bf923.chunk.css.map",
+    "static/css/3.27d05bb8.chunk.css.map": "/static/css/3.27d05bb8.chunk.css.map",
+    "static/css/6.f76a393a.chunk.css.map": "/static/css/6.f76a393a.chunk.css.map",
+    "static/css/main.c52668a0.chunk.css.map": "/static/css/main.c52668a0.chunk.css.map",
+    "static/js/2.9fad7eb5.chunk.js.LICENSE.txt": "/static/js/2.9fad7eb5.chunk.js.LICENSE.txt",
+    "static/js/4.dcbb3e3a.chunk.js.LICENSE.txt": "/static/js/4.dcbb3e3a.chunk.js.LICENSE.txt",
+    "static/js/5.cf626348.chunk.js.LICENSE.txt": "/static/js/5.cf626348.chunk.js.LICENSE.txt",
+    "static/media/cloud-background.ecadaa4e.jpg": "/static/media/cloud-background.ecadaa4e.jpg",
+    "static/media/font-awesome.min.css": "/static/media/fontawesome-webfont.f691f37e.woff",
+    "static/media/style.scss": "/static/media/glyphicons-halflings-regular.be810be3.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.87658011.js",
+    "static/css/2.183bf923.chunk.css",
+    "static/js/2.9fad7eb5.chunk.js",
+    "static/css/main.c52668a0.chunk.css",
+    "static/js/main.1c11dfd1.chunk.js"
+  ]
+}

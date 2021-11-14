@@ -13,7 +13,7 @@ const NavigationContainer : React.FC<any> = () => {
     useEffect(() => {
         dispatch(fetchUserProfile())
     },[]);
-    console.log(user)
+    //console.log(user)
     return (
         <Navigation user = {user}/>
 

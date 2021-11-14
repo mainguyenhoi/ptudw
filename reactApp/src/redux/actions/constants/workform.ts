@@ -1,0 +1,1 @@
+export const WORK_FORM_SUBMIT = 'user/WORK_FORM_SUBMIT';

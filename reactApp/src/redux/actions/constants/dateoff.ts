@@ -1,0 +1,1 @@
+export const FETCH_DATE_OFF_LIST = 'user/FETCH_DATE_OFF_LIST';

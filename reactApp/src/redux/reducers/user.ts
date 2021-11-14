@@ -16,6 +16,7 @@ const {loginAction, loginSuccess, loginPending, loginFailed, logOutAction ,fetch
 
 const UserReducer = createReducer(initialState, (builder) => {
     builder.addCase(loginAction, (state, action) => {
+        console.log("chay toi reducer");
         return {
             loading: true,
             error: null,

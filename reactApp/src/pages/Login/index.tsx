@@ -56,6 +56,7 @@ const  Login : React.FC<IProps> = (props) => {
     },[user])
 
     const login = (data) =>{
+        console.log(data);
         dispatch(UserAction.loginAction(data));
     }
     
@@ -70,7 +71,6 @@ const  Login : React.FC<IProps> = (props) => {
                     <p>Login in. To see it in action.</p>
 
                     <LoginForm onSubmit ={login} />
-
                     <br />
                     <div>Example account: user1 - 123456
                     </div>

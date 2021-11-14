@@ -1,15 +1,15 @@
-import React, {Component, useEffect, useState, useRef, useCallback, useMemo} from 'react';
+import React, { Component, useEffect, useState, useRef, useCallback, useMemo } from 'react';
 
 
-import {toastr} from 'react-redux-toastr';
-import {filter} from 'lodash';
+import { toastr } from 'react-redux-toastr';
+import { filter } from 'lodash';
 import Ibox from '@components/Ibox';
 import IboxHorisontal from '@components/iboxHorisontal/index';
-import {GeneralTable, THRowInterface, THCellInterface} from '@components/GeneralTable';
+import { GeneralTable, THRowInterface, THCellInterface } from '@components/GeneralTable';
 
 import { UnitService, LanguageService } from '@services';
 
-const  getColumns = (): THCellInterface<any>[] => {
+const getColumns = (): THCellInterface<any>[] => {
 
     return [{
         key: 'name',
@@ -23,15 +23,15 @@ const  getColumns = (): THCellInterface<any>[] => {
     {
         key: 'userRatio',
         content: 'Tỉ lệ',
-        formatter: ({row}) => {
+        formatter: ({ row }) => {
             return <>{row.userRatio} %</>
         }
     },
 
-]; 
+    ];
 }
 
-const  getColumnsUnit = (): THCellInterface<any>[] => {
+const getColumnsUnit = (): THCellInterface<any>[] => {
 
     return [{
         key: 'name',
@@ -45,12 +45,12 @@ const  getColumnsUnit = (): THCellInterface<any>[] => {
     {
         key: 'userRatio',
         content: 'Tỉ lệ',
-        formatter: ({row}) => {
+        formatter: ({ row }) => {
             return <>{row.userRatio} %</>
         }
     },
 
-]; 
+    ];
 }
 const Dashboard = () => {
     const [languages, setLanguages] = useState<any>([]);
@@ -61,14 +61,13 @@ const Dashboard = () => {
             const languages = await LanguageService.getAll();
             setLanguages(languages.languages)
         } catch {
-
         }
     }
-    const totalUserLanguage = useMemo(()=>{
-        return languages && languages.reduce((prev, cur)=>{
+    const totalUserLanguage = useMemo(() => {
+        return languages && languages.reduce((prev, cur) => {
             return prev + cur.users.length;
-        },0);
-    },[languages]);
+        }, 0);
+    }, [languages]);
 
     const getUnits = async () => {
         try {
@@ -78,46 +77,46 @@ const Dashboard = () => {
         }
     }
 
-    const totalUserUnit = useMemo(()=>{
-        return units && units.reduce((prev, cur)=>{
+    const totalUserUnit = useMemo(() => {
+        return units && units.reduce((prev, cur) => {
             return prev + cur.users.length;
-        },0);
-    },[units]);
-    
+        }, 0);
+    }, [units]);
+
     useEffect(() => {
         getLanguages();
         getUnits();
     }, []);
 
     const renderLanguageRatio = () => {
-        const ratios = languages.map((language:any) => {
+        const ratios = languages.map((language: any) => {
             const { users } = language;
             return {
                 name: language.name,
-                userRatio: (users.length/totalUserLanguage * 100).toFixed(2) ,
+                userRatio: (users.length / totalUserLanguage * 100).toFixed(2),
                 count: users.length
             }
         })
-        return  <GeneralTable columns={getColumns()} rows={ratios} directionDesc />
+        return <GeneralTable columns={getColumns()} rows={ratios} directionDesc />
 
     }
 
     const renderUnitRatio = () => {
-        const ratios =  units.map((unit:any) => {
+        const ratios = units.map((unit: any) => {
             const { users } = unit;
             return {
                 name: unit.name,
-                userRatio: (users.length/totalUserUnit  * 100).toFixed(2),
+                userRatio: (users.length / totalUserUnit * 100).toFixed(2),
                 count: users.length
             }
         });
 
-        return  <GeneralTable columns={getColumnsUnit()} rows={ratios} directionDesc />
+        return <GeneralTable columns={getColumnsUnit()} rows={ratios} directionDesc />
 
     };
 
 
-    
+
     return (
         <>
             <div className="d-flex">
@@ -126,7 +125,7 @@ const Dashboard = () => {
                     <Ibox title="Ngôn ngữ"
 
                         subTitle={<small>Ngôn ngữ</small>}
-                        >
+                    >
                         <div >
                             {
                                 renderLanguageRatio()
@@ -140,8 +139,8 @@ const Dashboard = () => {
                     <Ibox title="Đơn vị"
 
                         subTitle={<small>Đơn vị</small>}
-                         isClose={false}>
-<div >
+                        isClose={false}>
+                        <div >
                             {
                                 renderUnitRatio()
                             }

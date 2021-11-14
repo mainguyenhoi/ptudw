@@ -5,7 +5,7 @@ import Avatar from '../assests/images/avatar.jpg';
 import $ from 'jquery';
 import MenuItem from './menuItem';
 import MenuTree from './menuTree';
-// import logo from '../assets/img/logo.png';
+import logoDefaut from '../../assets/images/avatardefaut.jpg';
 import {smoothlyMenu} from '@helpers/theme';
 import {NavigationConstant} from '@constants';
 
@@ -39,7 +39,7 @@ const Navigation = (props) => {
     const menuRef = useRef(null);
 
     const {user } = props;
-    console.log(user);
+    //console.log(user);
 
     const [menu, setMenu] = useState(listNavigationMenu);
 
@@ -104,7 +104,7 @@ const Navigation = (props) => {
     const renderProfile = () => (
 
         <div className="dropdown profile-element">
-            <img alt="" className="img-circle logo" src={avatar} />
+            <img alt="" className="img-circle logo" src={(avatar === null)?logoDefaut: avatar} />
             <span data-toggle="dropdown" className="dropdown-toggle" style={{cursor: 'pointer'}}>
                 <span className="block m-t-xs font-bold">{name}</span>
                 <span className="text-muted text-xs block">
@@ -132,7 +132,7 @@ const Navigation = (props) => {
                     <li className="nav-header">
                         {renderProfile()}
                         <div className="logo-element">
-                            <img alt="" className="img-circle logo" src={avatar} />
+                            <img alt="" className="img-circle logo" src={(avatar === null)?logoDefaut: avatar} />
                         </div>
                     </li>
                     {listMenuELM}

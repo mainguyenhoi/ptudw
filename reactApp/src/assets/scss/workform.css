@@ -1,0 +1,21 @@
+.div-field{
+    width: 50%;
+    padding: 10px;
+    background-color: white;
+    display: block;
+}
+.div-input{
+    display: flex;
+}
+.form-group.input-group.m-b {
+    padding-right: 10px;
+}
+/* #in2{
+    display: none;
+}
+#in3{
+    display: none;
+}
+#in4{
+    display: none;
+} */
