@@ -11,7 +11,7 @@ const adminDateOff: React.FC = (props: any) => {
         console.log("user.userProfile.user.role.roleId");
         console.log(user.userProfile.user.roleId);
         useEffect(() => {
-            user.userProfile.user.roleId === 1 ? setIsAdmin(true) :setIsAdmin(false);
+            user.userProfile.user.roleId === 2 ? setIsAdmin(true) :setIsAdmin(false);
         }, [user])
         if(isAdmin){
             const dispatch = useDispatch();
